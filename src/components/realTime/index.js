@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const Timer = ({ delayResend = "800" }) => {
+const Timer = ({ delayResend = "800", setTimeEnd = () => {} }) => {
   const [delay, setDelay] = useState(+delayResend);
   const minutes = Math.floor(delay / 60);
   const seconds = Math.floor(delay % 60);
@@ -17,6 +17,10 @@ const Timer = ({ delayResend = "800" }) => {
       clearInterval(timer);
     };
   });
+
+  React.useEffect(() => {
+    if (minutes < 1 && seconds < 1) setTimeEnd(true);
+  }, [minutes, seconds, setTimeEnd]);
 
   return (
     <>
