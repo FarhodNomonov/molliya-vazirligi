@@ -43,7 +43,7 @@ function Codex({ questions }) {
             <Time />
           </div>
           <p>
-            <Timer delayResend={0.25 * 60} setTimeEnd={setTimeEnd} />
+            <Timer delayResend={questions?.time * 60} setTimeEnd={setTimeEnd} />
           </p>
         </div>
       </div>
