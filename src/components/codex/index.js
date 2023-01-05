@@ -33,6 +33,16 @@ function Codex({ questions }) {
       title: questions.question5,
     },
   ];
+
+  const ShuffleQuestions = (array = []) => {
+    for (var i = array.length; i > 0; --i)
+      array.push(array.splice((Math.random() * i) | 0, 1)[0]);
+    return array;
+  };
+
+  const RandomArray = ShuffleQuestions([0, 1, 2, 3, 4]);
+
+  
   return timeEnd ? (
     <Modal text={"time end"} />
   ) : (
@@ -51,11 +61,11 @@ function Codex({ questions }) {
         <h1>{questions?.title}</h1>
       </div>
       <div className="codex_content">
-        {DataText.map((item) => {
+        {RandomArray.map((item, i) => {
           return (
-            <p key={item.id}>
-              <span>{item.number}. </span>
-              {item.title}
+            <p key={item}>
+              <span>{i + 1}. </span>
+              {DataText[item].title}
             </p>
           );
         })}
