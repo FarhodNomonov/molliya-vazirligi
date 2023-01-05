@@ -1,7 +1,7 @@
 import React from "react";
 import { Time } from "../../assets/icons";
-import Modal from "../modal";
-import Timer from "../realTime";
+import Modal from "../../ui/modal";
+import Timer from "../../ui/realTime";
 import "./codex.css";
 
 function Codex({ questions }) {

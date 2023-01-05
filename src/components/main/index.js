@@ -4,8 +4,8 @@ import { useForm } from "react-hook-form";
 import axios from "axios";
 import "./main.css";
 import Codex from "../codex";
-import Loader from "../loader";
-import Modal from "../modal";
+import Loader from "../../ui/loader";
+import Modal from "../../ui/modal";
 
 function Main() {
   const { search = "" } = useLocation();
